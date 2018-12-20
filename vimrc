@@ -34,27 +34,25 @@ endif
 "if (has("gui_running")) 
 "   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10 
 "endif 
- 
-
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
-
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " 加载插件
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'michaelHL/awesome-vim-colorschemes'
-Plugin 'Tagbar'
-Plugin 'Tabular'
+Plugin 'taglist.vim'
 Plugin 'mru.vim'
+Plugin 'neocomplcache'
+Plugin 'molokai'
+Plugin 'ctrlp.vim'
+Plugin 'pydiction'
+
 call vundle#end()
 filetype plugin indent on     " required
-
 syntax on
-
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
@@ -99,22 +97,18 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
-
 " 映射全选+复制 ctrl+a
-map <C-A> ggVGY
-map! <C-A> <Esc>ggVGY
-map <F12> gg=G
+"map <C-A> ggVGY
+"map! <C-A> <Esc>ggVGY
+"map <F12> gg=G
 " 选中状态下 Ctrl+c 复制
-vmap <C-c> "+y
+"vmap <C-c> "+y
 "去空行  
 nnoremap <F2> :g/^\s*$/d<CR> 
-"比较文件  
 nnoremap <C-F2> :vert diffsplit 
-"新建标签  
-map <M-F2> :tabnew<CR>  
+map <F2> :TlistToggle<CR>  
 "列出当前目录文件  
 map <F3> :MRU <CR>  
 "打开树状文件目录  
@@ -155,7 +149,7 @@ set completeopt=preview,menu
 "允许插件  
 filetype plugin on
 "共享剪贴板  
-set clipboard+=unnamed 
+"set clipboard+=unnamed 
 "从不备份  
 set nobackup
 "make 运行
@@ -172,7 +166,7 @@ set guioptions-=m           " 隐藏菜单栏
 set foldcolumn=0
 set foldmethod=indent 
 set foldlevel=3 
-set foldenable              " 开始折叠
+"set foldenable              " 开始折叠
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 " 语法高亮
@@ -239,7 +233,7 @@ set backspace=2
 " 允许backspace和光标键跨越行边界
 set whichwrap+=<,>,h,l
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
-set mouse=a
+"set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
 " 通过使用: commands命令，告诉我们文件的哪一行被改变过
@@ -290,7 +284,6 @@ autocmd FileType java set tags+=D:\tools\java\tags
 "设置tags  
 set tags=tags  
 "set autochdir 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "其他东东
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
