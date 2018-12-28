@@ -14,5 +14,6 @@ ln -s $cur_dir ~/.vim
 
 if [ ! -d $cur_dir/bundle  ];then
 	mkdir $cur_dir/bundle
-    git clone https://github.com/VundleVim/Vundle.vim.git $cur_dir/bundle
+	mkdir $cur_dir/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git $cur_dir/bundle/Vundle.vim
 fi 
