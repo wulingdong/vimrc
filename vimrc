@@ -23,6 +23,7 @@ set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)
 set foldmethod=manual   " 手动折叠  
 "set background=dark "背景使用黑色 
 set nocompatible  "去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  
+let mapleader=','
 " 显示中文帮助
 if version >= 603
     set helplang=cn
@@ -49,6 +50,7 @@ Plugin 'neocomplcache'
 Plugin 'molokai'
 Plugin 'ctrlp.vim'
 Plugin 'pydiction'
+Plugin 'gtags.vim'
 
 call vundle#end()
 filetype plugin indent on     " required
@@ -97,6 +99,8 @@ endfunc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>g :GtagsCursor<cr>
+
 nmap cd :cd %:h<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>f :find<cr>
@@ -224,7 +228,7 @@ filetype indent on
 " 保存全局变量
 set viminfo+=!
 " 带有如下符号的单词不要被换行分割
-set iskeyword+=_,$,@,%,#,-
+"set iskeyword+=_,$,@,%,#,-
 " 字符间插入的像素行数目
 set linespace=0
 " 增强模式中的命令行自动完成操作
